@@ -9,7 +9,9 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon ./src/main.ts"
+
   },
   "dependencies": {
     "express": "^4.17.1"
@@ -23,8 +25,10 @@
     "@types/express": "^4.17.7",
     "@types/jest": "^26.0.7",
     "@types/node": "^14.0.26",
+    "@types/supertest": "^2.0.10",
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
     "typescript": "^3.9.7"
   }
 }

@@ -1,10 +1,10 @@
-import {Router, Request, Response} from "express";
+import {Router} from "express";
+import GroupsController from "../controllers/groupsController";
 
-const router = Router();
+const router: Router = Router();
+const groupsController = new GroupsController();
 
-router.get('/', (req: Request, res: Response) => {
-    // should route to GroupsController index/list method
-    res.json({name: "Black Devs"});
-});
+
+router.get('/', groupsController.index)
 
 export default router;

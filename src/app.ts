@@ -1,4 +1,5 @@
 import express from 'express'
+import groupsRouter from './routes/groups';
 
 class App {
     public express: express.Application;
@@ -13,12 +14,7 @@ class App {
     }
 
     private routes(): void {
-        let router = express.Router();
-
-        router.get('/', (req, res) => {
-            res.json({message: 'Hello world!'});
-        });
-        this.express.use('/', router);
+        this.express.use('/groups', groupsRouter);
     }
 }
 

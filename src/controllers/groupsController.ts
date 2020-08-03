@@ -1,9 +1,11 @@
-import {Response, Request} from "express";
+import { Request, Response } from "express";
+const db = require("../db");
 
 class GroupsController {
-    index(req: Request, res: Response) {
-        res.json({name: "Black Devs"});
-    }
+  async index(req: Request, res: Response) {
+    const { rows } = await db.query("SELECT * FROM groups");
+    res.json(rows[0]);
+  }
 }
 
 export default GroupsController;

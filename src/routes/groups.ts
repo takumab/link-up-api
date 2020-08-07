@@ -6,5 +6,6 @@ const groupsController = new GroupsController();
 
 router.get("/", groupsController.index);
 router.get("/:id", groupsController.show);
+router.post("/", groupsController.create);
 
 export default router;

@@ -26,7 +26,6 @@ class GroupsController {
   }
 
   async create(req: Request, res: Response) {
-    console.log(req.body);
     const group = new Group(req.body.name, req.body.description);
     try {
       await db.query(

@@ -37,6 +37,21 @@ class GroupsController {
       res.json({ error: e.message });
     }
   }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const { name, description } = req.body;
+    try {
+      await db.query("UPDATE groups SET name=$2, description=$3 WHERE id=$1", [
+        id,
+        name,
+        description,
+      ]);
+      res.json({ message: "Updated" });
+    } catch (e) {
+      res.json({ error: e.message });
+    }
+  }
 }
 
 export default GroupsController;

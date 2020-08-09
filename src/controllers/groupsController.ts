@@ -52,6 +52,17 @@ class GroupsController {
       res.json({ error: e.message });
     }
   }
+
+  // TODO: Add confirm functionality
+  async delete(req: Request, res: Response) {
+    const { id } = req.params;
+    try {
+      await db.query("DELETE FROM groups WHERE id=$1", [id]);
+      res.json({ message: `Deleted successfully!` });
+    } catch (e) {
+      res.json({ error: e.message });
+    }
+  }
 }
 
 export default GroupsController;
